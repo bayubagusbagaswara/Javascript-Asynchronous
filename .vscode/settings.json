@@ -1,0 +1,16 @@
+{
+    "editor.minimap.enabled": true,
+    "editor.fontSize": 16,
+    "editor.fontFamily": " 'Source Code Pro', Consolas, 'Courier New', monospace ",
+    "workbench.colorTheme": "One Dark Pro",
+    "workbench.iconTheme": "vscode-icons",
+    "editor.formatOnSave": true,
+    "editor.lineHeight": 32,
+    "php.suggest.basic": false,
+    "editor.wordWrap": "on",
+    "php.validate.executablePath": "E:/XAMPP/php/php.exe",
+    "liveServer.settings.port": 5502,
+    "emmet.includeLanguages": {
+        "javascript": "html"
+    }
+}
