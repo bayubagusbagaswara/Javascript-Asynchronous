@@ -11,11 +11,11 @@
       }
 
       function buttonClick() {
-        // proses asynchronous menggunakan setTimeout. Hasilnya akan mengeksekusi dulu Success Click Button, baru setelah 5 detik method callback akan dijalankan yakni Hello World.
+        // Memanggil method callback() secara asynchronous juga. Eksekusi pertama yakni Succes Click Button, kemudian setelah 2 detik akan memanggil method callback, dan 2 detik kemudian juga dijalankan. Jadi, Hello World akan ditampilkan secara interval tiap 2 detik
 
-        setTimeout(function () {
+        setInterval(function () {
           callback();
-        }, 5000);
+        }, 2000);
 
         console.log("Success Click Button");
       }
