@@ -11,8 +11,12 @@
       }
 
       function buttonClick() {
-        // jika ingin memanggil method/function callback dengan cara synchronous, tulis function callback dibawah. Hasilnya adalah Hello World dan Success Click Button.
-        callback();
+        // proses asynchronous menggunakan setTimeout. Hasilnya akan mengeksekusi dulu Success Click Button, baru setelah 5 detik method callback akan dijalankan yakni Hello World.
+
+        setTimeout(function () {
+          callback();
+        }, 5000);
+
         console.log("Success Click Button");
       }
     </script>
