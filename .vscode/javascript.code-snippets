@@ -20,6 +20,11 @@
 		"prefix": "php",
 		"body": "<?php $1 ?>"
 	},
+	"Tag EJS":{
+		"scope": "javascript, html",
+		"prefix": "ejs",
+		"body": "<%= $1 %>"
+	},
 	"Tag Comment Javascript":{
 		"scope": "javascript, html",
 		"prefix": "*",
