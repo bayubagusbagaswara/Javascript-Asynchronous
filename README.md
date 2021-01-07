@@ -38,3 +38,22 @@ setTimeout(function (){
 setInterval(function (){
 // do something there
 }, 5000);
+
+# Apa itu AJAX?
+
+- AJAX singkatan dari Asynchronous Javascript and XML.
+- AJAX dapat digunakan untuk mengmbil data dari sever setelah halaman web tampil (client side render).
+- AJAX dapat digunakan untuk mengubah tampilkan web tanpa harus me-load ulang web.
+- AJAX dapat mengirim data ke server secara async di background.
+
+# Cara Kerja AJAX
+
+AJAX akan mengirimkan Request ke Server untuk mengambil data. Server akan merespon dan mengembalikan data dari BackEnd menuju AJAX. Kemudian AJAX akan melakukan Render Response di HTML Web. AJAX otomatis menggunakan callback dalam menjalankannya.
+
+# Membuat AJAX
+
+const ajax = new XMLHttpRequest();
+ajax.open("METHOD", "url");
+ajax.send();
+
+- Secara otomatis semua requestnya akan dikirimkan ke backend secara asynchronous.
