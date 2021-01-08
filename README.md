@@ -1,3 +1,9 @@
+# Pre Requisite
+
+- Text Editor, Visual Studio Code
+- HTML, Javascript Dasar
+- CORS, untuk ambil data dari backend website luar
+
 # Javascript-Asynchronous
 
 Tentang pemrograman Javascript yang modern, meliputi Asynchronous, Callback, AJAX, Promise, Fetch, Async Await, Error Handling.
@@ -57,3 +63,21 @@ ajax.open("METHOD", "url");
 ajax.send();
 
 - Secara otomatis semua requestnya akan dikirimkan ke backend secara asynchronous.
+
+# AJAX Callback
+
+- Problem : kalau untuk mendapatkan data Ajaxnya kita menggunakan proses synchronous, ternyata tidak bisa. Seharusnya menggunakan asynchronous. Dan artinya untuk menerima hasil dari AJAX-nya kita perlu menggunakan callback.
+
+- AJAX biasanya digunakan untukmengirim data ke Server atau menerima data dari Server.
+- Tiap request AJAX yang dilakukan, biasanya kita ingin mendapat informasi response yang diberikan oleh Server.
+- Kita tidak bisa langsung mengambil response AJAX, karena proses AJAX adalah Asynchronous, sehingga kita perlu menunggu sampai proses Asynchronous nya selesai.
+- Untuk mendapatkan informasi AJAX, kita bisa menggunakan AJAX Callback, yang akan dieksekusi setelah proses AJAX selesai.
+
+# Membuat AJAX Callback
+
+const ajax = new XMLHttpRequest();
+ajax.onload = function(){
+const response = ajax.responseText;
+};
+ajax.open("METHOD", "url");
+ajax.send()
