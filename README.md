@@ -101,3 +101,10 @@ const response = ajax.responseText;
 };
 
 - sebenarnya tidak ada error pada callback. Akan tetapi, kita bikin callback itu sepintar mungkin. Seperti contoh diatas, jika dari server mengembalikan data berupa status 200, maka dianggap prosesnya sukses. Dan sebaliknya jika error, kita bisa bikin hal-hal apa yang kita berikan/tampilkan ke user
+
+# Dynamic Callback
+
+- Kadang dalam membuat program Javascript, kita ingin membuat callback yang dinamis.
+- Misal setelah kita dapat data dari AJAX nya tidak hanya ditampilkan di list, tapi bisa di tabel ataupun cuma log
+- Bisa berubah-ubah sesuai kebutuhan kita.
+- Untuk membuat Dynamic Callback, kita bisa memanfaatkan function as argument di Javascript, dimana callback function nya kita masukkan dalam argument, sehingga bisa diubah sesuai dengan keinginan kita.
