@@ -30,9 +30,10 @@ function clearProducts() {
   productUl.textContent = "";
 }
 
-function displayProducts(data) {
-  data.data.products.forEach((product) => displayProduct(product));
-}
+// Function displayProducts dihilangkan karena sudah di chain langsung pada promise
+// function displayProducts(data) {
+//   data.data.products.forEach((product) => displayProduct(product));
+// }
 
 function displayProduct(product) {
   const productLi = document.createElement("li");
@@ -43,11 +44,20 @@ function displayProduct(product) {
 }
 
 function buttonClick() {
-  // kembaliannya dalam promise lagi
   const promise = getProducts(document.getElementById("keyword").value);
-  console.log("Success Click Button");
+  promise
+    .then(function (value) {
+      return value.data.products;
+    })
+    .then(function (products) {
+      // langsung tampilkan products nya
+      products.forEach(function (product) {
+        displayProduct(product);
+      });
+    });
 }
 
-/* ===== 
-- jadi tinggal mindahin code asynchronous, pindahin ke function callbacknya promise. Lalu kalau success panggil resolve, kalau gagal panggil reject.
+/* ===== Noted 
+- kalau mau chain seterusnya/memakai beberapa method, pastikan method sebelumnya itu mereturn hasil datanya.
+- Jadi tidak perlu menggunakan callback lagi
 ===== */

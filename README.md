@@ -142,3 +142,23 @@ resolve(value)
 reject(error)
 }
 })
+
+# Promise Then Method
+
+Gimana cara ketika kita mendapatkan nilainya, terus kita pengen manggil function yg kita mau?
+
+- Pertanyaannya, bagaimana cara mendapatkan value yang ada di Promise ketika value nya sudah ada?
+- Promise memiliki method yang bernama then. Then method ini bisa digunakan sebagai callback ketika value pada Promise telah di resolve (selesai/berhasil).
+- Yang menarik menggunakan Then Method adalah kita bisa membuat chain method, sehingga tidak akan terjebak pada Callback Hell.
+
+# Menggunakan Then pada Promise
+
+promise
+.then(function(value){
+// do something here
+return otherValue;
+})
+.then(function(otherValue){
+// do something here
+return otherValueAgain;
+});
