@@ -162,3 +162,19 @@ return otherValue;
 // do something here
 return otherValueAgain;
 });
+
+# Promise Catch Method
+
+- Pada AJAX, jika terjadi error, kita bisa menggunakan Error Callback, bagaimana dengan Promise?
+- Promise memiliki method yang bernama Catch. Catch Method ini digunakan sebagai Error Callback yang bisa digunakan seperti Then Method.
+
+# Menggunakan Catch pada Promise
+
+promise
+.then(function(value){
+// do something here
+return otherValue;
+})
+.catch(function(error){
+// do something here
+})

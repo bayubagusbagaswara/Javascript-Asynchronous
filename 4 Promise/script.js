@@ -50,14 +50,16 @@ function buttonClick() {
       return value.data.products;
     })
     .then(function (products) {
-      // langsung tampilkan products nya
+      clearProducts();
       products.forEach(function (product) {
         displayProduct(product);
       });
+    })
+    .catch(function (error) {
+      alert(error.message);
     });
 }
 
 /* ===== Noted 
-- kalau mau chain seterusnya/memakai beberapa method, pastikan method sebelumnya itu mereturn hasil datanya.
-- Jadi tidak perlu menggunakan callback lagi
+- cukup menggunakan catch, tanpa harus menggunakan callback error
 ===== */
