@@ -81,3 +81,23 @@ const response = ajax.responseText;
 };
 ajax.open("METHOD", "url");
 ajax.send()
+
+# AJAX Error Callback
+
+- AJAX adalah proses komunikasi Client (Javascriptnya) dan Server (Backend).
+- Dalam komunikasi Client dan Server, kita tidak bisa selalu menganggap proses tersebut akan berjalan lancar.
+- Akan ada banyak hal-hal yang bisa mengganggu proses AJAX yang bisa menyebabkan error, seperti: koneksi internet bermasalah, error dari server, data dari client tidak valid, dan lain-lain.
+- Hal-hal error seperti ini perlu ditangani pada kode program kita. Dan kita bisa menggunakan Error Callback di AJAX.
+
+# Membuat AJAX Callback
+
+const ajax = new XMLHttpRequest();
+ajax.onload = function() {
+if(ajax.status === 200){
+const response = ajax.responseText;
+} else {
+// error handler here
+}
+};
+
+- sebenarnya tidak ada error pada callback. Akan tetapi, kita bikin callback itu sepintar mungkin. Seperti contoh diatas, jika dari server mengembalikan data berupa status 200, maka dianggap prosesnya sukses. Dan sebaliknya jika error, kita bisa bikin hal-hal apa yang kita berikan/tampilkan ke user
