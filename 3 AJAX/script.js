@@ -43,8 +43,9 @@ function displayProduct(product) {
   const productUl = document.getElementById("products");
   productUl.appendChild(productLi);
 }
+
 // Function untuk clear data product dalam table
-function clearTableProducts(data) {
+function clearTableProducts() {
   const productUl = document.getElementById("table-products");
   productUl.textContent = "";
 }
@@ -65,6 +66,8 @@ function displayTableProducts(data) {
 
 function buttonClick() {
   // selain value, kirimkan juga parameter callback success dan error
+
+  // getProducts untuk menampilkan dalam bentuk List
   getProducts(
     document.getElementById("keyword").value,
     function (data) {
@@ -73,8 +76,39 @@ function buttonClick() {
       displayProducts(data);
     },
     function () {
-      getProductsError;
+      getProductsError();
     }
   );
+
+  // getProducts untuk menampilkan dalam bentuk Table
+  getProducts(
+    document.getElementById("keyword").value,
+    function (data) {
+      // function anonymous karena berisi 2 tugas untuk clear & display
+      clearTableProducts();
+      displayTableProducts(data);
+    },
+    function () {
+      getProductsError();
+    }
+  );
+
+  // misal tambahkan callback yang lain
+  getProducts(
+    document.getElementById("keyword").value,
+    function (data) {
+      console.log(data);
+    },
+    function () {
+      console.log("Error");
+    }
+  );
+
   console.log("Success Click Button");
 }
+
+/* ===== 
+- Dengan seperti itu kita bisa ngubah-ubah sekarang callbacknya sesuka dengan keinginan kita tanpa harus mengubah isi method dari getProducts nya
+- nanti callbacknya tinggal kirim menggunakan function
+- callbacknya disimpan melalui argument, sehingga bisa mengubah-uabh isi callbacknya secara dinamis sesuai keinginan
+===== */
