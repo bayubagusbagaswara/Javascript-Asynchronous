@@ -108,3 +108,37 @@ const response = ajax.responseText;
 - Misal setelah kita dapat data dari AJAX nya tidak hanya ditampilkan di list, tapi bisa di tabel ataupun cuma log
 - Bisa berubah-ubah sesuai kebutuhan kita.
 - Untuk membuat Dynamic Callback, kita bisa memanfaatkan function as argument di Javascript, dimana callback function nya kita masukkan dalam argument, sehingga bisa diubah sesuai dengan keinginan kita.
+
+# Masalah dengan Callback
+
+doFirst(data,function(){
+doSecond(data, function(){
+doThird(data,function(){
+// Callback Hell
+})
+})
+})
+
+- semakin banyak callback yang dimasukkan, maka akan semakin ribet code-nya, ini dinamakan problem Callback Hell.
+- alernatif lain selain menggunakan callback yaitu menggunakan promise.
+
+# Apa itu Promise?
+
+- Promise merupakan proxy untuk sebuah nilai di masa depan (Future) yang belum diketahui saat pembuatan Promise tersebut.
+- Biasa Promise digunakan sebagai proxy untuk proses Async.
+- Penggunaan Promise sangat mudah, dan lebih mirip dengan kode Synchronous.
+
+# Promise State
+
+state : pending -- fulfilled -- rejected
+result : undefined -- value -- error
+
+# Membuat Promise
+
+const promise = new Promise(function (resolve, reject){
+if(success){
+resolve(value)
+} else {
+reject(error)
+}
+})
