@@ -242,8 +242,25 @@ fetch(url, config)
 
 async function onSearch(keyword){
 const products = await searchProducts(keyword);
+clearProducts();
+displayProducts(products);
+}
 
-    clearProducts();
-    displayProducts(products);
+# Async Await Error Handler
+
+- Pada Callback dan Promise, ada mekanisme Error Handler yang bisa dilakukan. Bagaimana dengan Async Await?
+- Pada Async Await, kita bisa menggunakan cara Synchronous untuk menggunakan Error Handlernya, yaitu menggunakan try-catch dan try-catch-finally
+
+# Menggunakan Async Await Error Handler
+
+async function onSearch(keyword){
+try{
+const products = await searchProducts(keyword);
+clearProducts();
+displayProducts(products);
+} catch(error){
+} finally{
+
+    }
 
 }

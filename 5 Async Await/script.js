@@ -11,15 +11,13 @@ function getProducts(keyword) {
         const data = JSON.parse(ajax.responseText);
         resolve(data);
       } else {
-        reject(Error(ajax.statusText));
+        reject(Error("Error mengambil data produk"));
       }
     };
 
-    const url = getProductsUrl(keyword);
-    ajax.open("GET", url);
+    ajax.open("GET", getProductsUrl(keyword));
     ajax.send();
   });
-  return promise;
 }
 
 function clearProducts() {
@@ -39,39 +37,20 @@ function displayProduct(product) {
   productUl.appendChild(productLi);
 }
 
-// method buttonClick adalah asynchronous
 async function buttonClick() {
   // Code Async Await Here!
 
-  //   BEFORE
-  //   const promise = getProducts(document.getElementById("keyword").value);
-  //   promise
-  //     .then(function (value) {
-  //       return value.data.products;
-  //     })
-  //     .then(function (products) {
-  //       clearProducts();
-  //       products.forEach(function (product) {
-  //         displayProduct(product);
-  //       });
-  //     })
-  //     .catch(function (error) {
-  //       alert(error.message);
-  //     })
-  //     .finally(function () {
-  //       console.log("Selesai memproses Promise");
-  //     });
+  try {
+    const value = await getProducts(document.getElementById("keyword").value);
 
-  // AFTER
-  // bisa langsung dapetin data productnya
-  // dengan await maka akan ditunggu sampai proses Promise berhasil mengembalikan data resolve nya yaitu JSON datanya.
-  // value hasilnya promise
-  // terus tinggal manipulasi hasil promise nya
-  const value = await getProducts(document.getElementById("keyword").value);
-
-  const products = value.data.products;
-  clearProducts();
-  products.forEach(function (product) {
-    displayProduct(product);
-  });
+    const products = value.data.products;
+    clearProducts();
+    products.forEach(function (product) {
+      displayProduct(product);
+    });
+  } catch (error) {
+    alert(error.message);
+  } finally {
+    console.log("Selesai memproses Async Await");
+  }
 }
