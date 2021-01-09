@@ -264,3 +264,20 @@ displayProducts(products);
     }
 
 }
+
+# Sebelum Belajar Web Worker
+
+- JavaScript adalah Single Thread, artinya walaupun proses yang kita buat adalah Async, tapi tetap akan dijalankan dalam Thread yang sama.
+- Kemampuan satu Thread dalam mengelola beberapa pekerjaan, dinamakan Concurrent.
+- Kemampuan menjalankan beberapa Thread untuk mengelola satu atau lebih pekerjaan, dinamakan Paralel.
+- Dan untuk membuat proses secara Paralel, kita bisa menggunakan Web Worker.
+
+# Web Worker
+
+- Web Worker adalah kemampuan yang untuk menjalankan proses di Thread yang berbeda dibanding Main Thread si Javascriptnya.
+- Keuntungan menggunakan Web Worker adalah jika terdapat proses yang membutuhkan waktu lama, Web kita tidak akan Freeze, karena proses tersebut bisa kita jalankan di Thread yang berbeda dari Main Thread (yang biasa digunakan oleh UI).
+- https://developer.mozilla.org/en-US/docs/Web/API/Web_Worker_API
+
+# Membuat Web Worker
+
+const worker = new Worker("file.js");
