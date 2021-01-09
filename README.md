@@ -178,3 +178,22 @@ return otherValue;
 .catch(function(error){
 // do something here
 })
+
+# Promise Finally Method
+
+- Kadang kita ingin menjalankan kode tertentu, baik itu saat sukses ataupun error.
+- Hal ini bisa dilakukan juga di Promise, menggunakan Finally Method.
+
+# Menggunakan Finally pada Promise
+
+promise
+.then(function(value){
+// do something here
+return otherValue;
+})
+.finally(function(){
+// do something
+})
+
+- function finally tidak perlu parameter
+- instruksi didalam finally akan dieksekusi saat promise nya sukses maupun gagal/error.

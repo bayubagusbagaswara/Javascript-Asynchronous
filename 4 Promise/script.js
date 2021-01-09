@@ -11,7 +11,6 @@ function getProducts(keyword) {
     ajax.onload = function () {
       if (ajax.status === 200) {
         const data = JSON.parse(ajax.responseText);
-        // tidak perlu manggil callback secara langsung
         resolve(data);
       } else {
         reject(Error("Gagal mengambil data produk"));
@@ -29,11 +28,6 @@ function clearProducts() {
   const productUl = document.getElementById("products");
   productUl.textContent = "";
 }
-
-// Function displayProducts dihilangkan karena sudah di chain langsung pada promise
-// function displayProducts(data) {
-//   data.data.products.forEach((product) => displayProduct(product));
-// }
 
 function displayProduct(product) {
   const productLi = document.createElement("li");
@@ -57,9 +51,10 @@ function buttonClick() {
     })
     .catch(function (error) {
       alert(error.message);
+    })
+    .finally(function () {
+      console.log("Selesai memproses Promise");
     });
 }
-
-/* ===== Noted 
-- cukup menggunakan catch, tanpa harus menggunakan callback error
-===== */
+/* ===== Noted
+- finally akan dieksekusi meskipun promisenya sukses ataupun gagal ===== */
