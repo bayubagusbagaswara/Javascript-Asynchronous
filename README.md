@@ -211,3 +211,21 @@ Promise.all([promise1, promise2, promise...])
 .then(function(values){
 // do something with values
 });
+
+# Fetch API
+
+- Fetch API adalah API baru untuk melakukan proses AJAX (pengganti/alternatif lain dari AJAX).
+- Tidak seperti AJAX yang menggunakan Callback, Fetch API menggunakan Promise (secara Default), sehingga bisa mudah menggunakan Fetch API dibanding AJAX.
+- https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+
+- Karena AJAX itu tetap menggunakan Callback, sehingga jika ingin menggunakan Promise harus mengakali (bikin manual) biar bisa menge-call callbacknya Promise tersebut.
+
+# Menggunakan Fetch API
+
+fetch(url, config)
+.then(function(response){
+// do something here
+})
+.catch(function(error){
+// do something here
+})
