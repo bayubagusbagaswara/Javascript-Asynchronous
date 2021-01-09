@@ -38,23 +38,50 @@ function displayProduct(product) {
 }
 
 function buttonClick() {
-  const promise = getProducts(document.getElementById("keyword").value);
-  promise
-    .then(function (value) {
-      return value.data.products;
+  // const promise = getProducts(document.getElementById("keyword").value);
+  // promise
+  //   .then(function (value) {
+  //     return value.data.products;
+  //   })
+  //   .then(function (products) {
+  //     clearProducts();
+  //     products.forEach(function (product) {
+  //       displayProduct(product);
+  //     });
+  //   })
+  //   .catch(function (error) {
+  //     alert(error.message);
+  //   })
+  //   .finally(function () {
+  //     console.log("Selesai memproses Promise");
+  //   });
+
+  // Promise dari masing-masing keyword
+  const promise1 = getProducts(document.getElementById("keyword").value);
+  const promise2 = getProducts(document.getElementById("keyword2").value);
+  const promise3 = getProducts(document.getElementById("keyword3").value);
+
+  // penggabungan promise
+  Promise.all([promise1, promise2, promise3])
+    .then(function (values) {
+      // dari data pencarian values kita map lagi, kita transform datanya, kita ambil datanya yang products nya doang
+      return values.map((value) => value.data.products);
     })
-    .then(function (products) {
+    // datanya (values) sudah menjadi Array of products-products
+    .then(function (values) {
       clearProducts();
-      products.forEach(function (product) {
-        displayProduct(product);
+      // dari data products nya kita lakukan forEach
+      values.forEach(function (products) {
+        // lalu products nya kita masukkan ke list
+        products.forEach(function (product) {
+          displayProduct(product);
+        });
       });
     })
     .catch(function (error) {
       alert(error.message);
     })
     .finally(function () {
-      console.log("Selesai memproses Promise");
+      console.log("Selesai memproses semua Promise");
     });
 }
-/* ===== Noted
-- finally akan dieksekusi meskipun promisenya sukses ataupun gagal ===== */

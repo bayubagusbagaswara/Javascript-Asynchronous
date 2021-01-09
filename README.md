@@ -197,3 +197,17 @@ return otherValue;
 
 - function finally tidak perlu parameter
 - instruksi didalam finally akan dieksekusi saat promise nya sukses maupun gagal/error.
+
+# Promise All Method
+
+- Kadang kita perlu berhadapan dengan beberapa proses Async sekaligus.
+- Misal, mengambil detail pada produk dari Server pada satu halaman web, dimana satu halaman bisa menampilkan lebih dari satu produk.
+- Menggunakan Promise satu per satu sangatlah menyulitkan jika terlalu banyak, tapi untungnya Promise memiliki method All.
+- All method bisa kita gunakan untuk menggabungkan beberapa Promise, menjadi Promise baru yang berisi data Array hasil Promise-Promise tersebut.
+
+# Menggunakan All pada Promise
+
+Promise.all([promise1, promise2, promise...])
+.then(function(values){
+// do something with values
+});
