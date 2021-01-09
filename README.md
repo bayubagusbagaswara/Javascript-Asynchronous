@@ -229,3 +229,21 @@ fetch(url, config)
 .catch(function(error){
 // do something here
 })
+
+# Async Await
+
+- Async Await adalah fitur baru JavaScript yang digunakan untuk mempermudah proses pembuatan code Promise.
+- Dengan menggunakan Async Await, kita bisa membuat kode Asynchronous dengan gaya Synchronous.
+- Async digunakan untuk menandakan bahwa Function tersebut adalah Async, dan mengembalikan Promise.
+- Await digunakan untuk mendapatkan value hasil dari Function yang mengembalikan Promise.
+- Await hanya bisa digunakan dalam Async Function.
+
+# Menggunakan Async Await
+
+async function onSearch(keyword){
+const products = await searchProducts(keyword);
+
+    clearProducts();
+    displayProducts(products);
+
+}
