@@ -281,3 +281,38 @@ displayProducts(products);
 # Membuat Web Worker
 
 const worker = new Worker("file.js");
+
+# Web Worker Communucation
+
+- Web Worker adalah proses Async, dan untuk berkomunikasi dengan Web Worker, kita akan menggunakan Event Listener.
+- Untuk mengirim data ke Web Worker atau ke Main Thread, kita bisa menggunakan method postMessage.
+
+# Web Worker Communication (1)
+
+const worker = new Worker("file.js");
+
+worker.addEventListener("message", function (event) {
+const data = event.data;
+})
+
+worker.postMessage(message);
+
+# Web Worker Communication (2)
+
+// worker-file.js
+
+addEventListener("message", function(event){
+const data = event.data;
+
+    // send back
+    postMessage(message);
+
+})
+
+# Selanjutnya Belajar Apa?
+
+- RxJs (Reactive Extensions Library for Javascript)
+- Web Socket, lebih ke protocol antara client - server
+- Cara Kerja Non-Blocking (Asynchronous)
+
+~ KEEP LEARNING

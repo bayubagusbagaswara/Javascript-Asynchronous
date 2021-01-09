@@ -1,12 +1,12 @@
-const worker = new Worker("web-worker.js");
+const worker = new Worker("./web-worker.js");
 
-function showLog(total) {
-  for (let i = 0; i < total; i++) {
-    console.log(i);
-  }
-}
+// communication web worker
+worker.addEventListener("message", function (event) {
+  console.og(`Receive message from web worker : ${event.data}`);
+});
+
 function buttonClick() {
   console.log("Start Log");
-  showLog(20000); // button akan freeze sebelum 20000 selesai
+  worker.postMessage(20000);
   console.log("Finish Log");
 }
